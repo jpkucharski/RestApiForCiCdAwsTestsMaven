@@ -1,7 +1,5 @@
 pipeline {
     agent any
-    environment{
-    }
     stages('Stage_1'){
         stage{
             echo 'Running Step1...!!!!!'
