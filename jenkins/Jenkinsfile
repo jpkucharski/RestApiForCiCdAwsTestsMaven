@@ -1,16 +1,17 @@
 pipeline {
     agent any
     stages{
-        stage('Clean'){
+        stage('MVN_Steps'){
             steps{
-                echo 'Running MVN Clean...!!!!!'
+                echo 'Running MVN Clean+Package...!!!!!'
                 sh 'mvn clean'
             }
         }
-        stage('Package'){
+        stage('ListFiles'){
                     steps{
-                        echo 'Running MVN Package...!!!!!'
-                        sh 'mvn package'
+                        echo 'Files in directory...!!!!!'
+                        sh 'pwd'
+                        sh 'ls'
                     }
                 }
     }
