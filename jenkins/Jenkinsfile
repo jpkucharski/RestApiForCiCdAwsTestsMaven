@@ -4,7 +4,7 @@ pipeline {
         stage('Clean'){
             steps{
                 echo 'Running MVN Clean...!!!!!'
-                sh 'mvn clear'
+                sh 'mvn clean'
             }
         }
         stage('Package'){
