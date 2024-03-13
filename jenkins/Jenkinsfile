@@ -12,7 +12,6 @@ pipeline {
                         echo 'Files in directory...!!!!!'
                         sh 'pwd'
                         sh 'ls'
-                        sh 'java -jar src/target/*.jar &'
                     }
         }
         stage('DeployLocally'){
