@@ -17,7 +17,7 @@ pipeline {
         stage('DeployLocally'){
                     steps{
                         echo 'deploying locally!!'
-                        sh 'java -jar src/target/*.jar &'
+                        sh 'java -jar target/*.jar &'
                     }
         }
     }
