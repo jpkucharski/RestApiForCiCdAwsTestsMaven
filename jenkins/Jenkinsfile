@@ -21,5 +21,17 @@ pipeline {
                         sh 'sleep 20'
                     }
         }
+        stage('AWS cred') {
+            steps{
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: "jenkins_to_aws_credentials",
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh "aws ec2 describe-instances --region eu-central-1"
+                }
+            }
+        }
     }
 }
