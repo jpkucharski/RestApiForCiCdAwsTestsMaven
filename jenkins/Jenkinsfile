@@ -17,7 +17,7 @@ pipeline {
         stage('DeployLocally'){
                     steps{
                         echo 'deploying locally!!'
-                        sh 'java -jar target/*.jar &'
+                        sh 'nohup java -jar target/*.jar &'
                         sh 'sleep 20'
                     }
         }
