@@ -1,10 +1,17 @@
 pipeline {
     agent any
     stages{
-        stage('Stage_1'){
+        stage('Clean'){
             steps{
-                echo 'Running Step1...!!!!!'
+                echo 'Running MVN Clean...!!!!!'
+                sh 'mvn clear'
             }
         }
+        stage('Package'){
+                    steps{
+                        echo 'Running MVN Package...!!!!!'
+                        sh 'mvn package'
+                    }
+                }
     }
 }
