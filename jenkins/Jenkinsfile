@@ -21,7 +21,7 @@ pipeline {
                         sh 'sleep 20'
                     }
         }
-        stage('AWS cred') {
+        stage('SSH copy to remote') {
             steps{
                 withCredentials([[
                     sshagent(credentials: ['ssh_to_EC2_server_1']){
