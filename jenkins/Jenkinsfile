@@ -23,11 +23,8 @@ pipeline {
         }
         stage('SSH copy to remote') {
             steps {
-                withCredentials([sshagent(['ssh_to_EC2_server_1'])]) {
-                    script {
-                        def ec2ServerIP = env.EC2_SERVER_1_IP
-                        sh "scp /target/*.jar ${ec2ServerIP}:/home/ubuntu/jar_images"
-                    }
+                sshagent(['ssh_to_EC2_server_1']){
+                    sh 'echo it_is_working!!!'
                 }
             }
         }
