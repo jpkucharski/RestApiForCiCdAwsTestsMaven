@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sshagent(['ssh_to_EC2_server_1']){
                     sh 'echo serverName:!!!'
-                    sh 'echo EC2_SERVER_1_IP'
+                    sh 'echo ${EC2_SERVER_1_IP}'
                     sh 'pwd'
                     sh 'ls'
                     sh 'copy target/*.jar ubuntu@${EC2_SERVER_1_IP:/home/ubuntu/jar_images}'
