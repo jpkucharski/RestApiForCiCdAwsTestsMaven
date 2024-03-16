@@ -24,8 +24,11 @@ pipeline {
         stage('SSH copy to remote') {
             steps {
                 sshagent(['ssh_to_EC2_server_1']){
-                    sh 'echo it_is_working!!!'
-                    sh 'scp target/*.jar ubuntu@${EC2_SERVER_1_IP:/home/ubuntu/jar_images}'
+                    sh 'echo serverName:!!!'
+                    sh 'echo EC2_SERVER_1_IP'
+                    sh 'pwd'
+                    sh 'ls'
+                    sh 'copy target/*.jar ubuntu@${EC2_SERVER_1_IP:/home/ubuntu/jar_images}'
                 }
             }
         }
