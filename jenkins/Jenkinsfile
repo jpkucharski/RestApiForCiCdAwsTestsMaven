@@ -25,8 +25,7 @@ pipeline {
             steps {
                 sshagent(['ssh_to_EC2_server_1']){
                     sh "scp -o StrictHostKeyChecking=no -P 22 target/*.jar ubuntu@${EC2_SERVER_1_IP}:/home/ubuntu/jar_images"
-                    sh 'pwd'
-                    sh 'nohup java -jar /home/ubuntu/jar_images/RestApiForCiCdAwsTestsMaven-1.0-SNAPSHOT.jar &'
+                    sh 'nohup java -jar /home/ubuntu/jar_images/*.jar &'
                 }
             }
         }
