@@ -24,8 +24,8 @@ pipeline {
         stage('SSH copy to remote') {
             steps {
                 sshagent(['ssh_to_EC2_server_1']){
-                    sh "scp -o StrictHostKeyChecking=no -P 22 -f target/*.jar ubuntu@${EC2_SERVER_1_IP}:/home/ubuntu/jar_images"
-                    sh "nohup java -jar /home/ubuntu/jar_images/*.jar &"
+                    sh "scp -o StrictHostKeyChecking=no -P 22 target/*.jar ubuntu@${EC2_SERVER_1_IP}:/home/ubuntu/jar_images"
+
                 }
             }
         }
